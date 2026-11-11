@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#111923">
+  <meta name="description" content="攝影新手入門教學型 HTML 簡報，內容來自 LLM Wiki。">
+  <title>攝影新手入門｜從曝光到夜景</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#deck">跳到簡報內容</a>
+
+  <header class="chrome" aria-label="簡報控制列">
+    <button class="icon-button" id="menuButton" type="button" aria-label="開啟目錄" aria-keyshortcuts="M">
+      <span aria-hidden="true">☰</span><span class="control-label">目錄</span>
+    </button>
+    <div class="deck-name">攝影新手入門</div>
+    <div class="chrome-actions">
+      <span id="slideCounter" class="slide-counter" aria-live="polite">1 / 22</span>
+      <button class="icon-button" id="fullscreenButton" type="button" aria-label="切換全螢幕" aria-keyshortcuts="F">
+        <span aria-hidden="true">⛶</span><span class="control-label">全螢幕</span>
+      </button>
+    </div>
+  </header>
+
+  <div class="progress-track" role="progressbar" aria-label="簡報進度" aria-valuemin="1" aria-valuemax="22" aria-valuenow="1">
+    <div id="progressBar" class="progress-bar"></div>
+  </div>
+
+  <main id="deck" class="deck" tabindex="-1">
+    <section class="slide cover-slide is-active" data-title="攝影新手入門" data-section="開始" aria-labelledby="s1-title">
+      <img class="cover-image" src="assets/cover-blue-hour.png" alt="攝影者在藍調時刻眺望城市並準備拍攝" fetchpriority="high">
+      <div class="cover-shade"></div>
+      <div class="cover-copy">
+        <p class="eyebrow">PHOTOGRAPHY 101</p>
+        <h1 id="s1-title">攝影新手入門</h1>
+        <p class="cover-subtitle">從曝光、景深到構圖與夜景</p>
+        <p class="cover-note">教學內容由攝影 LLM Wiki 整理</p>
+      </div>
+      <div class="source-line source-on-dark">Wiki：index.md｜核心來源：SRC-01 至 SRC-05</div>
+    </section>
+
+    <section class="slide paper-slide" data-title="學習地圖" data-section="開始" aria-labelledby="s2-title">
+      <div class="slide-inner">
+        <p class="folio">02</p>
+        <h2 id="s2-title">學習地圖</h2>
+        <div class="chapter-list" aria-label="課程章節">
+          <div><span>01</span><strong>曝光</strong><p>理解光圈、快門與 ISO 的分工</p></div>
+          <div><span>02</span><strong>景深</strong><p>看懂清晰範圍如何改變</p></div>
+          <div><span>03</span><strong>動態</strong><p>凝結動作或留下移動痕跡</p></div>
+          <div><span>04</span><strong>構圖</strong><p>安排主體、地平線與視線方向</p></div>
+          <div><span>05</span><strong>夜景</strong><p>處理低光、腳架、對焦與測光</p></div>
+        </div>
+        <p class="callout">學完後，你應能說明每項設定改變了什麼，以及它帶來的代價。</p>
+      </div>
+      <div class="source-line">Wiki：index.md</div>
+    </section>
+
+    <section class="slide dark-slide" data-title="相機與手機的共同原理" data-section="開始" aria-labelledby="s3-title">
+      <div class="slide-inner split-copy">
+        <div>
+          <p class="folio">03</p>
+          <h2 id="s3-title">相機與手機的共同原理</h2>
+          <p class="lead">兩者都在處理光線、時間、清晰範圍與畫面安排。</p>
+        </div>
+        <div class="scope-notes">
+          <p><strong>可以共用</strong><br>曝光取捨、動態表現、景深觀念、三分法與夜景思考順序。</p>
+          <p><strong>需要分開</strong><br>手機可能沒有可變實體光圈，夜景模式也可能合成多張影像。</p>
+          <p><strong>本簡報範圍</strong><br>先教共同原理。五篇來源不足以支持完整的手機操作步驟。</p>
+        </div>
+      </div>
+      <div class="source-line source-on-dark">Wiki：exposure.md、claim-ledger.md｜限制：CL-025</div>
+    </section>
+
+    <section class="slide paper-slide" data-title="曝光三要素" data-section="曝光" aria-labelledby="s4-title">
+      <div class="slide-inner">
+        <p class="folio">04</p>
+        <h2 id="s4-title">曝光三要素</h2>
+        <p class="lead">相近亮度可以由不同設定組合得到，但畫面效果不會相同。</p>
+        <div class="exposure-layout">
+          <div class="exposure-word aperture-word"><span>APERTURE</span><strong>光圈</strong><small>景深</small></div>
+          <div class="exposure-word shutter-word"><span>SHUTTER</span><strong>快門</strong><small>動態</small></div>
+          <div class="exposure-word iso-word"><span>ISO</span><strong>ISO</strong><small>雜訊</small></div>
+          <div class="exposure-center">曝光<br><small>EXPOSURE</small></div>
+        </div>
+      </div>
+      <div class="source-line">Wiki：exposure.md｜來源：SRC-01</div>
+    </section>
+
+    <section class="slide split-slide" data-title="光圈" data-section="曝光" aria-labelledby="s5-title">
+      <div class="visual-half warm-visual">
+        <div class="aperture-demo" aria-label="光圈大小示意">
+          <div class="iris iris-open"><span>f/2.8</span></div>
+          <div class="iris iris-small"><span>f/11</span></div>
+        </div>
+      </div>
+      <div class="content-half">
+        <p class="folio">05</p>
+        <h2 id="s5-title">光圈 Aperture</h2>
+        <p class="lead">f-number 越小，光圈開口越大。</p>
+        <dl class="definition-list">
+          <div><dt>大光圈</dt><dd>進光較多，通常景深較淺</dd></div>
+          <div><dt>小光圈</dt><dd>進光較少，通常景深較深</dd></div>
+        </dl>
+        <p class="note">光圈太小可能受到繞射影響，畫面不一定更銳利。</p>
+      </div>
+      <div class="source-line">Wiki：exposure.md、aperture-depth-of-field.md｜來源：SRC-01、SRC-02</div>
+    </section>
+
+    <section class="slide dark-slide" data-title="快門速度" data-section="曝光" aria-labelledby="s6-title">
+      <div class="slide-inner">
+        <p class="folio">06</p>
+        <h2 id="s6-title">快門速度 Shutter Speed</h2>
+        <div class="scale-line" aria-label="快門速度由慢至快">
+          <div><strong>1 秒</strong><span>累積移動軌跡</span></div>
+          <div><strong>1/30 秒</strong><span>手持與追焦起點</span></div>
+          <div><strong>1/500 秒</strong><span>凝結日常動作</span></div>
+          <div><strong>1/2000 秒</strong><span>快速或近距離動作</span></div>
+        </div>
+        <p class="callout dark-callout">快門越快，進光時間越短。數值只是起點，主體速度、方向、距離與焦段都會改變結果。</p>
+      </div>
+      <div class="source-line source-on-dark">Wiki：shutter-motion.md｜來源：SRC-01、SRC-03</div>
+    </section>
+
+    <section class="slide paper-slide" data-title="ISO 與雜訊" data-section="曝光" aria-labelledby="s7-title">
+      <div class="slide-inner split-copy">
+        <div>
+          <p class="folio">07</p>
+          <h2 id="s7-title">ISO 與雜訊</h2>
+          <p class="lead">提高 ISO 能配合所需的光圈與快門，但通常會增加雜訊。</p>
+        </div>
+        <div class="iso-comparison" aria-label="低 ISO 與高 ISO 的概念比較">
+          <div class="iso-sample clean-sample"><span>ISO 100</span><strong>較乾淨</strong></div>
+          <div class="iso-sample noisy-sample"><span>ISO 3200</span><strong>雜訊增加</strong></div>
+        </div>
+        <p class="note full-width">來源以「感光度」作入門解釋。本課不把它延伸成感光元件物理特性的完整說明。</p>
+      </div>
+      <div class="source-line">Wiki：exposure.md｜來源：SRC-01｜標記：simplified</div>
+    </section>
+
+    <section class="slide paper-slide" data-title="曝光取捨" data-section="曝光" aria-labelledby="s8-title">
+      <div class="slide-inner">
+        <p class="folio">08</p>
+        <h2 id="s8-title">曝光取捨</h2>
+        <p class="lead">先決定你最在意的畫面效果，再讓另外兩項設定配合。</p>
+        <div class="decision-table" role="table" aria-label="拍攝目的與優先設定">
+          <div role="row"><span role="cell">人物背景柔化</span><strong role="cell">先選大光圈</strong><span role="cell">檢查快門是否足夠</span></div>
+          <div role="row"><span role="cell">運動凝結</span><strong role="cell">先選快快門</strong><span role="cell">必要時提高 ISO</span></div>
+          <div role="row"><span role="cell">風景前後清楚</span><strong role="cell">先選景深需求</strong><span role="cell">腳架可換取較慢快門</span></div>
+          <div role="row"><span role="cell">夜間靜態場景</span><strong role="cell">先穩定相機</strong><span role="cell">再平衡景深與雜訊</span></div>
+        </div>
+      </div>
+      <div class="source-line">Wiki：exposure.md、night-photography.md｜來源：SRC-01、SRC-05</div>
+    </section>
+
+    <section class="slide quiz-slide" data-title="測驗一：曝光" data-section="曝光" aria-labelledby="s9-title">
+      <div class="slide-inner quiz" data-answer="a">
+        <p class="folio">09</p>
+        <p class="eyebrow">QUICK CHECK 01</p>
+        <h2 id="s9-title">哪個設定通常帶來較淺景深？</h2>
+        <div class="quiz-options">
+          <button type="button" data-choice="a">A　f/2.8</button>
+          <button type="button" data-choice="b">B　f/11</button>
+          <button type="button" data-choice="c">C　兩者一定相同</button>
+        </div>
+        <p class="quiz-feedback" aria-live="polite" data-correct="答對了。較小的 f-number 代表較大的光圈，通常帶來較淺景深。" data-wrong="再想一次。f-number 的大小和光圈開口大小相反。"></p>
+      </div>
+      <div class="source-line">Wiki：aperture-depth-of-field.md｜來源：SRC-01、SRC-02</div>
+    </section>
+
+    <section class="slide image-slide" data-title="景深" data-section="景深" aria-labelledby="s10-title">
+      <img src="assets/depth-of-field.png" alt="花朵清晰而前景與背景逐漸模糊，示範景深" loading="lazy">
+      <div class="image-caption light-caption">
+        <p class="folio">10</p>
+        <h2 id="s10-title">景深 Depth of Field</h2>
+        <p>景深是看起來「可接受清晰」的距離範圍。清晰到模糊是漸進過渡，不是一條突然切換的界線。</p>
+      </div>
+      <div class="source-line source-on-dark">Wiki：aperture-depth-of-field.md｜來源：SRC-02</div>
+    </section>
+
+    <section class="slide paper-slide" data-title="景深的控制因素" data-section="景深" aria-labelledby="s11-title">
+      <div class="slide-inner">
+        <p class="folio">11</p>
+        <h2 id="s11-title">景深的控制因素</h2>
+        <div class="factor-lines">
+          <div><span>光圈</span><strong>較大的光圈通常讓景深變淺</strong></div>
+          <div><span>對焦距離</span><strong>越靠近主體，景深通常越淺</strong></div>
+          <div><span>放大倍率</span><strong>主體在畫面越大，清晰範圍更難維持</strong></div>
+          <div><span>觀看條件</span><strong>輸出尺寸與觀看距離影響「可接受清晰」</strong></div>
+        </div>
+      </div>
+      <div class="source-line">Wiki：aperture-depth-of-field.md｜來源：SRC-02</div>
+    </section>
+
+    <section class="slide dark-slide" data-title="焦段與景深" data-section="景深" aria-labelledby="s12-title">
+      <div class="slide-inner split-copy">
+        <div>
+          <p class="folio">12</p>
+          <h2 id="s12-title">焦段與景深</h2>
+          <p class="lead">比較條件不同，結論也不同。</p>
+        </div>
+        <div class="condition-pair">
+          <div><strong>固定主體大小</strong><p>換焦段時同時改變拍攝距離，總景深可能接近。</p></div>
+          <div><strong>固定拍攝位置</strong><p>使用較長焦段時，構圖與放大倍率改變，景深會不同。</p></div>
+        </div>
+        <p class="note full-width light-note">長焦放大背景模糊，可能讓背景看起來更糊。這和景深範圍本身不是完全相同的問題。</p>
+      </div>
+      <div class="source-line source-on-dark">Wiki：aperture-depth-of-field.md｜來源：SRC-02｜標記：conditional</div>
+    </section>
+
+    <section class="slide image-slide" data-title="快門與動態" data-section="動態" aria-labelledby="s13-title">
+      <img src="assets/shutter-panning.png" alt="騎士相對清晰而背景呈現水平動態模糊" loading="lazy">
+      <div class="image-caption dark-caption right-caption">
+        <p class="folio">13</p>
+        <h2 id="s13-title">快門與動態</h2>
+        <p>同一快門速度下，速度、方向與主體在畫面中的大小仍會改變模糊量。</p>
+      </div>
+      <div class="source-line source-on-dark">Wiki：shutter-motion.md｜來源：SRC-03</div>
+    </section>
+
+    <section class="slide paper-slide" data-title="追焦" data-section="動態" aria-labelledby="s14-title">
+      <div class="slide-inner split-copy">
+        <div>
+          <p class="folio">14</p>
+          <h2 id="s14-title">追焦 Panning</h2>
+          <p class="lead">曝光期間讓相機持續跟隨主體。</p>
+        </div>
+        <ol class="process-list">
+          <li><span>01</span>先選有紋理的背景</li>
+          <li><span>02</span>從約 1/30 秒附近測試</li>
+          <li><span>03</span>平順跟隨主體並按下快門</li>
+          <li><span>04</span>拍完繼續跟隨，檢查後再調整</li>
+        </ol>
+        <p class="note full-width">成功率來自練習。快門值會隨主體速度、距離與焦段改變。</p>
+      </div>
+      <div class="source-line">Wiki：shutter-motion.md｜來源：SRC-03</div>
+    </section>
+
+    <section class="slide image-slide" data-title="三分法" data-section="構圖" aria-labelledby="s15-title">
+      <img src="assets/composition-thirds.png" alt="海岸風景中人物位於右下三分交點附近，地平線靠近上三分線" loading="lazy">
+      <div class="thirds-grid" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+      <div class="image-caption light-caption">
+        <p class="folio">15</p>
+        <h2 id="s15-title">三分法 Rule of Thirds</h2>
+        <p>把地平線或主體安排在三分線附近，協助控制畫面比重與方向空間。</p>
+      </div>
+      <div class="source-line source-on-dark">Wiki：composition.md｜來源：SRC-04</div>
+    </section>
+
+    <section class="slide paper-slide" data-title="打破三分法" data-section="構圖" aria-labelledby="s16-title">
+      <div class="slide-inner">
+        <p class="folio">16</p>
+        <h2 id="s16-title">打破三分法</h2>
+        <p class="lead">三分法是一項指引。對稱、正面感或刻意失衡都可能需要中央構圖。</p>
+        <div class="editorial-quote">
+          <p>主體有什麼特別？</p>
+          <p>你想強調什麼？</p>
+          <p>你想讓觀眾感受到什麼？</p>
+        </div>
+        <p class="note">若三分法能幫助意圖，就使用。若不能，就有理由地打破。</p>
+      </div>
+      <div class="source-line">Wiki：composition.md｜來源：SRC-04｜標記：subjective</div>
+    </section>
+
+    <section class="slide quiz-slide" data-title="測驗二：動態" data-section="動態" aria-labelledby="s17-title">
+      <div class="slide-inner quiz" data-answer="b">
+        <p class="folio">17</p>
+        <p class="eyebrow">QUICK CHECK 02</p>
+        <h2 id="s17-title">想讓騎士清楚、背景形成水平線條，應嘗試什麼？</h2>
+        <div class="quiz-options">
+          <button type="button" data-choice="a">A　只把 ISO 調到最低</button>
+          <button type="button" data-choice="b">B　使用較慢快門並跟隨騎士</button>
+          <button type="button" data-choice="c">C　把相機完全固定不動</button>
+        </div>
+        <p class="quiz-feedback" aria-live="polite" data-correct="答對了。追焦讓相機跟隨主體，背景因相對移動形成方向性模糊。" data-wrong="再想一次。題目描述的是追焦，不只是一項曝光設定。"></p>
+      </div>
+      <div class="source-line">Wiki：shutter-motion.md｜來源：SRC-03</div>
+    </section>
+
+    <section class="slide image-slide" data-title="夜景攝影" data-section="夜景" aria-labelledby="s18-title">
+      <img src="assets/night-tripod.png" alt="攝影者使用穩固腳架拍攝夜間城市" loading="lazy">
+      <div class="image-caption dark-caption right-caption">
+        <p class="folio">18</p>
+        <h2 id="s18-title">夜景攝影</h2>
+        <p>低光會放大曝光時間、景深與雜訊之間的取捨。穩定相機通常是第一步。</p>
+      </div>
+      <div class="source-line source-on-dark">Wiki：night-photography.md｜來源：SRC-05</div>
+    </section>
+
+    <section class="slide dark-slide" data-title="夜景拍攝順序" data-section="夜景" aria-labelledby="s19-title">
+      <div class="slide-inner">
+        <p class="folio">19</p>
+        <h2 id="s19-title">夜景拍攝順序</h2>
+        <ol class="night-sequence">
+          <li><span>1</span><strong>穩定</strong><small>腳架、地面與構圖</small></li>
+          <li><span>2</span><strong>景深</strong><small>依主體距離選光圈</small></li>
+          <li><span>3</span><strong>動態</strong><small>決定可接受的快門</small></li>
+          <li><span>4</span><strong>雜訊</strong><small>再調整 ISO</small></li>
+          <li><span>5</span><strong>檢查</strong><small>亮部、對焦與晃動</small></li>
+        </ol>
+      </div>
+      <div class="source-line source-on-dark">Wiki：night-photography.md｜來源：SRC-05</div>
+    </section>
+
+    <section class="slide paper-slide" data-title="夜間對焦與測光" data-section="夜景" aria-labelledby="s20-title">
+      <div class="slide-inner split-copy">
+        <div>
+          <p class="folio">20</p>
+          <h2 id="s20-title">夜間對焦與測光</h2>
+          <p class="lead">低亮度與低對比都可能讓 AF 失敗。</p>
+        </div>
+        <div class="scope-notes dark-text-notes">
+          <p><strong>對焦</strong><br>尋找與主體距離相近的亮點，或使用小型照明輔助。</p>
+          <p><strong>測光</strong><br>檢查明亮招牌與路燈，避免高光完全失去細節。</p>
+          <p><strong>長曝光</strong><br>超過一般快門範圍時，可使用 Bulb 與外部計時。</p>
+        </div>
+        <p class="note full-width">AF 點與模式依器材而異。來源中的中央 AF 點建議不能套用到所有現代相機或手機。</p>
+      </div>
+      <div class="source-line">Wiki：focus.md、night-photography.md｜來源：SRC-05｜標記：legacy/context-dependent</div>
+    </section>
+
+    <section class="slide quiz-slide" data-title="測驗三：構圖" data-section="構圖" aria-labelledby="s21-title">
+      <div class="slide-inner quiz" data-answer="c">
+        <p class="folio">21</p>
+        <p class="eyebrow">QUICK CHECK 03</p>
+        <h2 id="s21-title">拍攝完全對稱的建築入口，哪個選擇最合理？</h2>
+        <div class="quiz-options">
+          <button type="button" data-choice="a">A　任何照片都必須使用三分法</button>
+          <button type="button" data-choice="b">B　先提高 ISO，構圖就會改善</button>
+          <button type="button" data-choice="c">C　可用中央構圖強調對稱</button>
+        </div>
+        <p class="quiz-feedback" aria-live="polite" data-correct="答對了。對稱是打破三分法的合理原因，重點是構圖是否支持拍攝意圖。" data-wrong="再想一次。曝光設定不能代替構圖判斷，三分法也不是硬性規則。"></p>
+      </div>
+      <div class="source-line">Wiki：composition.md｜來源：SRC-04</div>
+    </section>
+
+    <section class="slide cover-slide end-slide" data-title="拍攝前的五個問題" data-section="結尾" aria-labelledby="s22-title">
+      <img class="cover-image" src="assets/cover-blue-hour.png" alt="藍調時刻的攝影者與城市" loading="lazy">
+      <div class="cover-shade deep-shade"></div>
+      <div class="end-copy">
+        <p class="folio light-folio">22</p>
+        <h2 id="s22-title">拍攝前的五個問題</h2>
+        <ol>
+          <li>我最想保留什麼畫面效果？</li>
+          <li>主體會不會移動？</li>
+          <li>需要多大的清晰範圍？</li>
+          <li>構圖如何引導視線？</li>
+          <li>拍完後，我檢查了亮部、對焦與晃動嗎？</li>
+        </ol>
+        <p class="end-note">理解取捨，下一張照片就有清楚的調整方向。</p>
+      </div>
+      <div class="source-line source-on-dark">Wiki：index.md、claim-ledger.md｜來源：SRC-01 至 SRC-05</div>
+    </section>
+  </main>
+
+  <nav class="bottom-nav" aria-label="投影片導覽">
+    <button id="prevButton" type="button" aria-label="上一張投影片">←</button>
+    <button id="nextButton" type="button" aria-label="下一張投影片">→</button>
+  </nav>
+
+  <dialog id="tocDialog" class="toc-dialog" aria-labelledby="tocTitle">
+    <div class="toc-header">
+      <div><p class="eyebrow">CONTENTS</p><h2 id="tocTitle">簡報目錄</h2></div>
+      <button id="closeTocButton" class="icon-button" type="button" aria-label="關閉目錄">✕</button>
+    </div>
+    <div id="tocList" class="toc-list"></div>
+  </dialog>
+
+  <div id="helpHint" class="help-hint" aria-hidden="true">使用 ← → 翻頁，M 開啟目錄，F 切換全螢幕</div>
+</body>
+</html>

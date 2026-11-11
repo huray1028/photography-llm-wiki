@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="3100" viewBox="0 0 1600 3100" role="img" aria-labelledby="title desc">
+  <title id="title">攝影新手 LLM Wiki：高準確度 Ingest Graph</title>
+  <desc id="desc">從討論範圍、來源完整性、原子主張驗證、Wiki 整合、lint 到五篇批次綜合檢查的流程圖，包含錯誤重試迴圈。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="14" markerHeight="14" refX="11" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L12,5 L0,10 z" fill="#344054"/>
+    </marker>
+    <style>
+      .bg{fill:#f6f3ed}.title{font:700 54px 'Noto Sans TC','Microsoft JhengHei',sans-serif;fill:#172b4d}.sub{font:400 27px 'Noto Sans TC','Microsoft JhengHei',sans-serif;fill:#475467}.section{font:700 30px 'Noto Sans TC','Microsoft JhengHei',sans-serif;fill:#344054}.node{fill:#ffffff;stroke:#98a2b3;stroke-width:3}.check{fill:#fff3d6;stroke:#d99a00;stroke-width:4}.artifact{fill:#e8f5ee;stroke:#27895b;stroke-width:4}.retry{fill:#fbe9e7;stroke:#c43d35;stroke-width:4}.text{font:600 28px 'Noto Sans TC','Microsoft JhengHei',sans-serif;fill:#1d2939;text-anchor:middle}.small{font:400 23px 'Noto Sans TC','Microsoft JhengHei',sans-serif;fill:#475467;text-anchor:middle}.edge{fill:none;stroke:#344054;stroke-width:5;marker-end:url(#arrow)}.loop{fill:none;stroke:#c43d35;stroke-width:5;marker-end:url(#arrow)}.label{font:600 23px 'Noto Sans TC','Microsoft JhengHei',sans-serif;fill:#344054}.yes{fill:#18794e}.no{fill:#b42318}
+    </style>
+  </defs>
+  <rect class="bg" width="1600" height="3100"/>
+  <text class="title" x="800" y="80" text-anchor="middle">攝影新手 LLM Wiki｜高準確度 Ingest Graph</text>
+  <text class="sub" x="800" y="125" text-anchor="middle">五篇來源逐篇處理；檢查失敗就回到最早可修正的節點</text>
+
+  <text class="section" x="120" y="200">01　範圍與來源閘門</text>
+  <rect class="node" x="430" y="235" width="740" height="130" rx="28"/>
+  <text class="text" x="800" y="290"><tspan x="800">先討論：讀者、主題、教學範圍</tspan><tspan class="small" x="800" dy="38">人類決定來源與重點，模型不自行擴張範圍</tspan></text>
+  <path class="edge" d="M800 365 V430"/>
+  <rect class="node" x="430" y="430" width="740" height="130" rx="28"/>
+  <text class="text" x="800" y="485"><tspan x="800">讀取一篇 raw 來源</tspan><tspan class="small" x="800" dy="38">保存 SRC 編號、標題、URL、日期與雜湊</tspan></text>
+  <path class="edge" d="M800 560 V625"/>
+  <polygon class="check" points="800,625 1110,745 800,865 490,745"/>
+  <text class="text" x="800" y="725"><tspan x="800">來源完整而且乾淨？</tspan><tspan class="small" x="800" dy="38">正文／廣告污染／缺圖／時效性</tspan></text>
+  <path class="loop" d="M1110 745 H1370 V495 H1170"/>
+  <text class="label no" x="1175" y="720">否：重取或標記缺漏</text>
+  <path class="edge" d="M800 865 V940"/>
+  <text class="label yes" x="825" y="910">是</text>
+
+  <text class="section" x="120" y="1000">02　原子主張與證據驗證</text>
+  <rect class="node" x="430" y="1035" width="740" height="145" rx="28"/>
+  <text class="text" x="800" y="1088"><tspan x="800">拆解文章結構</tspan><tspan class="small" x="800" dy="38">定義／原理／數值／例子／限制</tspan><tspan class="small" x="800" dy="32">圖片依賴先檢視，不憑文字臆測</tspan></text>
+  <path class="edge" d="M800 1180 V1245"/>
+  <rect class="artifact" x="430" y="1245" width="740" height="150" rx="28"/>
+  <text class="text" x="800" y="1300"><tspan x="800">建立 Claim Ledger</tspan><tspan class="small" x="800" dy="38">Claim ID／來源章節／證據／適用條件</tspan><tspan class="small" x="800" dy="32">supported／conditional／legacy／gap</tspan></text>
+  <path class="edge" d="M800 1395 V1460"/>
+  <rect class="check" x="430" y="1460" width="740" height="185" rx="28"/>
+  <text class="text" x="800" y="1515"><tspan x="800">主張級驗證</tspan><tspan class="small" x="800" dy="38">忠實性 → 數值與方向 → 適用範圍 → 時效性</tspan><tspan class="small" x="800" dy="32">相機／手機／器材世代是否被混用？</tspan></text>
+  <path class="edge" d="M800 1645 V1710"/>
+  <polygon class="check" points="800,1710 1110,1825 800,1940 490,1825"/>
+  <text class="text" x="800" y="1807"><tspan x="800">全部通過？</tspan><tspan class="small" x="800" dy="38">有證據且保留必要條件</tspan></text>
+  <rect class="retry" x="1210" y="1735" width="300" height="180" rx="28"/>
+  <text class="text" x="1360" y="1800"><tspan x="1360">修正或降級</tspan><tspan class="small" x="1360" dy="38">回原文重讀</tspan><tspan class="small" x="1360" dy="32">標記 gap／legacy</tspan></text>
+  <path class="loop" d="M1110 1825 H1210"/>
+  <text class="label no" x="1128" y="1798">否</text>
+  <path class="loop" d="M1360 1735 V1340 H1170"/>
+  <path class="edge" d="M800 1940 V2010"/>
+  <text class="label yes" x="825" y="1985">是</text>
+
+  <text class="section" x="120" y="2070">03　Wiki 整合與健康檢查</text>
+  <rect class="artifact" x="430" y="2105" width="740" height="150" rx="28"/>
+  <text class="text" x="800" y="2160"><tspan x="800">寫入來源摘要與概念頁</tspan><tspan class="small" x="800" dy="38">更新雙向連結，不讓新資料靜默覆蓋舊資料</tspan><tspan class="small" x="800" dy="32">保留衝突、限制與例外</tspan></text>
+  <path class="edge" d="M800 2255 V2320"/>
+  <rect class="check" x="430" y="2320" width="740" height="165" rx="28"/>
+  <text class="text" x="800" y="2375"><tspan x="800">Cross-source Check ＋ Wiki Lint</tspan><tspan class="small" x="800" dy="38">矛盾／引用覆蓋／術語／孤立頁／重複內容</tspan><tspan class="small" x="800" dy="32">失敗就回到對應主張或概念頁</tspan></text>
+  <path class="loop" d="M430 2400 H250 V2180 H430"/>
+  <text class="label no" x="120" y="2380">失敗：回修</text>
+  <path class="edge" d="M800 2485 V2550"/>
+  <polygon class="check" points="800,2550 1080,2655 800,2760 520,2655"/>
+  <text class="text" x="800" y="2638"><tspan x="800">人工確認摘要？</tspan><tspan class="small" x="800" dy="38">忠於來源且新手可理解</tspan></text>
+  <path class="loop" d="M520 2655 H300 V2180 H430"/>
+  <text class="label no" x="330" y="2625">需修改</text>
+  <path class="edge" d="M800 2760 V2825"/>
+  <text class="label yes" x="825" y="2805">確認</text>
+
+  <text class="section" x="120" y="2880">04　批次完成與可交付紀錄</text>
+  <rect class="artifact" x="300" y="2915" width="1000" height="130" rx="28"/>
+  <text class="text" x="800" y="2968"><tspan x="800">更新 index.md／log.md／Evidence Matrix</tspan><tspan class="small" x="800" dy="38">五篇完成後標記 knowledge gaps，Wiki 才進入簡報查詢階段</tspan></text>
+</svg>
+

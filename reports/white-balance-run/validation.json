@@ -1,0 +1,13 @@
+{
+  "raw_sha256": "16140BBEA32AFFA52E78FEA89457D3BE7016D9AD4CA5E584E55CF939AB6F16C1",
+  "raw_hash_matches": true,
+  "initial_claims": 12,
+  "reviewed_claims": 12,
+  "ids_match": true,
+  "unique_ids": true,
+  "corrected_rows": 4,
+  "relative_links_checked": 15,
+  "broken_links": [],
+  "human_review": "pending",
+  "semantic_review": "model review, not automated fact verification"
+}
